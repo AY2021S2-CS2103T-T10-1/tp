@@ -15,7 +15,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import dog.pawbook.model.owner.UniqueOwnerList;
 import dog.pawbook.model.owner.exceptions.DuplicateOwnerException;
 import dog.pawbook.model.owner.exceptions.OwnerNotFoundException;
 import dog.pawbook.testutil.OwnerBuilder;
