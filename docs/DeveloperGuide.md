@@ -212,7 +212,7 @@ Based on the class type of the target entity, we will reveal the search results 
 This list is subsequently passed on to the `RelatedEntityPredicate` that will later be used in the ModelManager's `updatefilteredEntityList())` method to finally reveal the search results.
 
 
-Below is an example activitiy diagram for a valid view command from the user. 
+Below is an example activity diagram for a valid view command from the user. 
 
 ![ViewActivityDiagram](images/ViewActivityDiagram.png)
 
