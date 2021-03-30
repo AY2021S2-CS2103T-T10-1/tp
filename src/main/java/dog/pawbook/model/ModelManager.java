@@ -4,13 +4,19 @@ import static dog.pawbook.commons.util.CollectionUtil.requireAllNonNull;
 import static java.util.Objects.requireNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import dog.pawbook.commons.core.GuiSettings;
 import dog.pawbook.commons.core.LogsCenter;
 import dog.pawbook.model.managedentity.Entity;
+import dog.pawbook.model.managedentity.dog.Dog;
+import dog.pawbook.model.managedentity.owner.Owner;
+import dog.pawbook.model.managedentity.program.Program;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.util.Pair;
@@ -137,6 +143,57 @@ public class ModelManager implements Model {
     @Override
     public ObservableList<Pair<Integer, Entity>> getUnfilteredEntityList() {
         return database.getEntityList();
+    }
+
+    @Override
+    public List<Dog> getDogList() {
+        List<Dog> list = new ArrayList<>();
+        for (Pair<Integer, Entity> filteredEntity : filteredEntities) {
+            if (filteredEntity.getValue() instanceof Dog) {
+                Dog dog = (Dog) filteredEntity.getValue();
+                list.add(dog);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public ObservableList<Dog> getFilteredDogList() {
+        return FXCollections.observableList(getDogList());
+    }
+
+    @Override
+    public List<Owner> getOwnerList() {
+        List<Owner> list = new ArrayList<>();
+        for (Pair<Integer, Entity> filteredEntity : filteredEntities) {
+            if (filteredEntity.getValue() instanceof Owner) {
+                Owner owner = (Owner) filteredEntity.getValue();
+                list.add(owner);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public ObservableList<Owner> getFilteredOwnerList() {
+        return FXCollections.observableList(getOwnerList());
+    }
+
+    @Override
+    public List<Program> getProgramList() {
+        List<Program> list = new ArrayList<>();
+        for (Pair<Integer, Entity> filteredEntity : filteredEntities) {
+            if (filteredEntity.getValue() instanceof Program) {
+                Program program = (Program) filteredEntity.getValue();
+                list.add(program);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public ObservableList<Program> getFilteredProgramList() {
+        return FXCollections.observableList(getProgramList());
     }
 
     @Override

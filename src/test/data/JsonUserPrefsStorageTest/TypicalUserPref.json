@@ -7,5 +7,7 @@
       "y" : 100
     }
   },
+
   "databaseFilePath" : "database.json"
+
 }

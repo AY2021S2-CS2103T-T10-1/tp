@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -22,10 +23,14 @@ import dog.pawbook.model.Model;
 import dog.pawbook.model.ReadOnlyDatabase;
 import dog.pawbook.model.ReadOnlyUserPrefs;
 import dog.pawbook.model.managedentity.Entity;
+import dog.pawbook.model.managedentity.dog.Dog;
 import dog.pawbook.model.managedentity.owner.Owner;
+import dog.pawbook.model.managedentity.program.Program;
 import dog.pawbook.testutil.OwnerBuilder;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
+
+
 
 public class AddOwnerCommandTest {
 
@@ -171,6 +176,32 @@ public class AddOwnerCommandTest {
         public void sortEntities(Comparator<Pair<Integer, Entity>> comparator) {
             throw new AssertionError("This method should not be called.");
         }
+        @Override
+        public ObservableList<Program> getFilteredProgramList() {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public ObservableList<Owner> getFilteredOwnerList() {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public ObservableList<Dog> getFilteredDogList() {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public List<Program> getProgramList() {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public List<Owner> getOwnerList() {
+            throw new AssertionError("This method should not be called.");
+        }
+        @Override
+        public List<Dog> getDogList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+
     }
 
     /**

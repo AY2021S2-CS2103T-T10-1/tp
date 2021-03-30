@@ -3,6 +3,7 @@ package dog.pawbook.logic;
 import java.nio.file.Path;
 
 import dog.pawbook.commons.core.GuiSettings;
+import dog.pawbook.logic.autocomplete.AutoCompleteResult;
 import dog.pawbook.logic.commands.CommandResult;
 import dog.pawbook.logic.commands.exceptions.CommandException;
 import dog.pawbook.logic.parser.exceptions.ParseException;
@@ -50,4 +51,12 @@ public interface Logic {
      * Sets the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+    /**
+     * Takes an input string and returns an {@code AutoCompleteResult} according to existing values.
+     * @param input The input string.
+     * @return A matching {@code AutoCompleteResult}.
+     */
+    AutoCompleteResult getAutoCompleteResult(String input);
+
 }

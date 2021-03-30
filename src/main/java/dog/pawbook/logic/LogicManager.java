@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 
 import dog.pawbook.commons.core.GuiSettings;
 import dog.pawbook.commons.core.LogsCenter;
+import dog.pawbook.logic.autocomplete.AutoCompleteResult;
+import dog.pawbook.logic.autocomplete.AutoCompleteResultGenerator;
 import dog.pawbook.logic.commands.Command;
 import dog.pawbook.logic.commands.CommandResult;
 import dog.pawbook.logic.commands.exceptions.CommandException;
@@ -28,6 +30,7 @@ public class LogicManager implements Logic {
     private final Model model;
     private final Storage storage;
     private final PawbookParser pawbookParser;
+    private final AutoCompleteResultGenerator autoCompleteResultGenerator;
 
     /**
      * Constructs a {@code LogicManager} with the given {@code Model} and {@code Storage}.
@@ -36,6 +39,7 @@ public class LogicManager implements Logic {
         this.model = model;
         this.storage = storage;
         pawbookParser = new PawbookParser();
+        autoCompleteResultGenerator = new AutoCompleteResultGenerator(model);
     }
 
     @Override
@@ -73,6 +77,11 @@ public class LogicManager implements Logic {
     @Override
     public GuiSettings getGuiSettings() {
         return model.getGuiSettings();
+    }
+
+    @Override
+    public AutoCompleteResult getAutoCompleteResult(String input) {
+        return autoCompleteResultGenerator.process(input);
     }
 
     @Override

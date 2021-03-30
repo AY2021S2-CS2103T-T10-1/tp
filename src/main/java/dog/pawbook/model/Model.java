@@ -2,10 +2,14 @@ package dog.pawbook.model;
 
 import java.nio.file.Path;
 import java.util.Comparator;
+import java.util.List;
 import java.util.function.Predicate;
 
 import dog.pawbook.commons.core.GuiSettings;
 import dog.pawbook.model.managedentity.Entity;
+import dog.pawbook.model.managedentity.dog.Dog;
+import dog.pawbook.model.managedentity.owner.Owner;
+import dog.pawbook.model.managedentity.program.Program;
 import javafx.collections.ObservableList;
 import javafx.util.Pair;
 
@@ -99,6 +103,19 @@ public interface Model {
      * Returns an unmodifiable view of the unfiltered owner list
      */
     ObservableList<Pair<Integer, Entity>> getUnfilteredEntityList();
+
+    List<Owner> getOwnerList();
+    /** Returns an unmodifiable view of the filtered dog list */
+    ObservableList<Owner> getFilteredOwnerList();
+
+    List<Dog> getDogList();
+    /** Returns an unmodifiable view of the filtered dog list */
+    ObservableList<Dog> getFilteredDogList();
+
+    List<Program> getProgramList();
+    /** Returns an unmodifiable view of the filtered dog list */
+    ObservableList<Program> getFilteredProgramList();
+
 
     /**
      * Updates the filter of the filtered entity list to filter by the given {@code predicate}.
