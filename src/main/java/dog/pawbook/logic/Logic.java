@@ -58,5 +58,4 @@ public interface Logic {
      * @return A matching {@code AutoCompleteResult}.
      */
     AutoCompleteResult getAutoCompleteResult(String input);
-
 }

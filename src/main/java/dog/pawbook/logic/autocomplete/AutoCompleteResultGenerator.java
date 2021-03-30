@@ -65,6 +65,58 @@ public class AutoCompleteResultGenerator {
         // General commands
         providers.put("exit", EmptyProvider.getInstance());
         providers.put("help", EmptyProvider.getInstance());
+        //providers.put("switch-c", EmptyProvider.getInstance());
+        providers.put("add dog", new AddDogGraph(model));
+        //providers.put("delete-c", new DeleteCustomerProvider(model));
+        //providers.put("find-c", new FindCustomerProvider(model));
+        //providers.put("list-c", EmptyProvider.getInstance());
+        //providers.put("clear-c", EmptyProvider.getInstance());
+        //providers.put("edit-c", new EditCustomerGraph(model));
+        //providers.put("copy-c", new CopyCustomerProvider(model));
+
+        /*
+        // Phone commands
+        providers.put("switch-p", EmptyProvider.getInstance());
+        providers.put("add-p", new AddPhoneGraph(model));
+        providers.put("delete-p", new DeletePhoneProvider(model));
+        providers.put("find-p", new FindPhoneProvider(model));
+        providers.put("list-p", EmptyProvider.getInstance());
+        providers.put("clear-p", EmptyProvider.getInstance());
+        providers.put("edit-p", new EditPhoneGraph(model));
+        providers.put("copy-p", new CopyPhoneProvider(model));*/
+
+        /*
+        // Order commands
+        providers.put("switch-o", EmptyProvider.getInstance());
+        providers.put("add-o", new AddOrderGraph(model));
+        providers.put("find-o", new FindOrderProvider(model));
+        providers.put("complete", new CompleteOrderProvider(model));
+        providers.put("cancel", new CancelOrderProvider(model));
+        providers.put("list-o", EmptyProvider.getInstance());
+        providers.put("clear-o", EmptyProvider.getInstance());
+        providers.put("edit-o", new EditOrderGraph(model));
+        providers.put("copy-o", new CopyOrderProvider(model));
+
+        // Schedule commands
+        providers.put("switch-s", EmptyProvider.getInstance());
+        providers.put("schedule", new ViewScheduleGraph(model));
+        providers.put("add-s", new AddScheduleGraph(model));
+        providers.put("delete-s", new DeleteScheduleProvider(model));
+        providers.put("edit-s", new EditScheduleGraph(model));
+        providers.put("clear-s", EmptyProvider.getInstance());
+
+        // Archived order commands
+        providers.put("switch-a", EmptyProvider.getInstance());
+        providers.put("clear-a", EmptyProvider.getInstance());
+
+        // General commands
+        providers.put("undo", EmptyProvider.getInstance());
+        providers.put("redo", EmptyProvider.getInstance());
+        providers.put("history", EmptyProvider.getInstance());
+        providers.put("generate-s", new GenerateStatsGraph(model));
+        providers.put("exit", EmptyProvider.getInstance());
+        providers.put("help", EmptyProvider.getInstance());
+        providers.put("export", EmptyProvider.getInstance()); */
     }
 
     private Optional<AutoCompleteResultProvider> getProvider(String commandWord) {

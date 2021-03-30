@@ -4,6 +4,10 @@
 <?import javafx.scene.layout.*?>
 
 <?import dog.pawbook.ui.AutoCompleteTextField?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0669c114... Add AddDog autocomplete
 <StackPane styleClass="stack-pane" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
   <AutoCompleteTextField fx:id="commandTextField" onAction="#handleCommandEntered" promptText="Enter command here" />
 </StackPane>
