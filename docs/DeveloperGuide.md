@@ -305,7 +305,7 @@ Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Sinc
 The following activity diagram summarizes what happens when a user executes a new command:
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
-
+\
 #### Design consideration:
 
 ##### Aspect: How undo & redo executes

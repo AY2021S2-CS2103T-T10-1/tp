@@ -65,7 +65,6 @@ public class AutoCompleteResultGenerator {
         // General commands
         providers.put("exit", EmptyProvider.getInstance());
         providers.put("help", EmptyProvider.getInstance());
-        
     }
 
     private Optional<AutoCompleteResultProvider> getProvider(String commandWord) {
