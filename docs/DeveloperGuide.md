@@ -126,7 +126,7 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the ``, which `Entity` references. This allows `` to only require one `Tag` object per unique `Tag`, instead of each `Entity` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `Addressbook`, which `Entity` references. This allows `Addressbook` to only require one `Tag` object per unique `Tag`, instead of each `Entity` needing their own `Tag` object.<br>
 ![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
 
 </div>
@@ -245,29 +245,29 @@ However, this requires there to be no duplicate dog or program names.
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `Versioned`. It extends `` with an undo/redo history, stored internally as an `StateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `` with an undo/redo history, stored internally as an `StateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `Versioned#commit()` — Saves the current address book state in its history.
-* `Versioned#undo()` — Restores the previous address book state from its history.
-* `Versioned#redo()` — Restores a previously undone address book state from its history.
+* `VersionedAddressbook#commit()` — Saves the current address book state in its history.
+* `VersionedAddressbook#undo()` — Restores the previous address book state from its history.
+* `VersionedAddressbook#redo()` — Restores a previously undone address book state from its history.
 
-These operations are exposed in the `Model` interface as `Model#commit()`, `Model#undo()` and `Model#redo()` respectively.
+These operations are exposed in the `Model` interface as `Model#commitAddressbook()`, `Model#undoAddressbook()` and `Model#redoAddressbook()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `Versioned` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `VersionedAddressbook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th owner in the address book. The `delete` command calls `Model#commit()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `StateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete 5` command to delete the 5th owner in the address book. The `delete` command calls `Model#commitAddressbook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
-Step 3. The user executes `add n/David …​` to add a new owner. The `add` command also calls `Model#commit()`, causing another modified address book state to be saved into the `StateList`.
+Step 3. The user executes `add n/David …​` to add a new owner. The `add` command also calls `Model#commitAddressbook()`, causing another modified address book state to be saved into the `addressBookStateList`.
 
 ![UndoRedoState2](images/UndoRedoState2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commit()`, so the address book state will not be saved into the `StateList`.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressbook()`, so the address book state will not be saved into the `addressBookStateList`.
 
 </div>
 

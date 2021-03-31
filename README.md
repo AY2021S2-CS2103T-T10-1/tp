@@ -7,4 +7,4 @@
 In Singapore, dog schools are popular among dog owners. Besides day care, they also provide training, grooming and workshops. With many moving parts daily, managing operations  can get overwhelming. PawBook is an all-in-one management system to help dog school managers keep track of attendance, scheduling and services and maintain organisation.
 
 ### Acknowledgement
-This project is based on the -Level3 project created by the [SE-EDU initiative](https://se-education.org).
+This project is based on the Addressbook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
